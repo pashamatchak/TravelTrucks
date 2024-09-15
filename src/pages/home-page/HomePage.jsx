@@ -3,10 +3,10 @@ import css from './Home.module.css';
 
 const HomePage = () => {
   return (
-    <div className={css.home}>
+    <div className={css.component}>
       <img
         className={css.image}
-        src="./src/assets/home.png"
+        src="/home.png"
         alt="Home" />
 
       <div className={css.content}>

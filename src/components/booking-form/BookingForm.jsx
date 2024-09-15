@@ -8,14 +8,14 @@ const BookingForm = () => {
   function onFormSubmit(values, { resetForm }) {
     console.log(values);
     toast.success('Your booking was recieved', {
-      position: "top-right",
+      position: 'top-right',
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "dark",
+      theme: 'dark',
       transition: Bounce,
     });
     resetForm();

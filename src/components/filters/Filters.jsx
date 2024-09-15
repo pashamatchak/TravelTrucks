@@ -26,7 +26,7 @@ const Filters = () => {
   }
   
   return (
-    <section className={css.filters}>
+    <section className={css.component}>
       <form onSubmit={onSubmit}>
         <div className={css.location}>
           <label className={css.label}>Location</label>

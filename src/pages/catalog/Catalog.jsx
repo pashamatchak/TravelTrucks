@@ -44,7 +44,7 @@ const Catalog = () => {
   return (
     <main className="container">
       <div className="content">
-        <div className={css.layout}>
+        <div className={css.component}>
           <Filters />
 
           <section>
@@ -70,7 +70,7 @@ const Catalog = () => {
             {!isLoading && items.length > campersToShow && 
               <button
                 type="button"
-                className="button"
+                className={css.more}
                 onClick={() => dispatch(increaseCampersToShow())}>
                 Load more
               </button>

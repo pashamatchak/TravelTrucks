@@ -2,7 +2,14 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import css from './ReviewsLocation.module.css';
 
-const ReviewsLocation = ({ id, rating, reviewsCount, location, isSamePageAsReviews }) => {
+const ReviewsLocation = ({
+  id,
+  rating,
+  reviewsCount,
+  location,
+  isSamePageAsReviews,
+  onClick,
+}) => {
   return (
     <div className={`${css.component} ${isSamePageAsReviews ? css['small-margin'] : ''}`}>
       <div className={css.reviews}>
@@ -10,7 +17,8 @@ const ReviewsLocation = ({ id, rating, reviewsCount, location, isSamePageAsRevie
 
         <NavLink
           className={css['reviews-link']}
-          to={isSamePageAsReviews ? 'reviews' : `/catalog/${id}/reviews`}>
+          to={isSamePageAsReviews ? 'reviews' : `/catalog/${id}/reviews`}
+          onClick={onClick}>
           {rating}
 
           ({reviewsCount} Reviews)
@@ -32,6 +40,7 @@ ReviewsLocation.propTypes = {
   reviewsCount: PropTypes.number.isRequired,
   location: PropTypes.string.isRequired,
   isSamePageAsReviews: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default ReviewsLocation;

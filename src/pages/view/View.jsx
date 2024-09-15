@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import ModalImage from 'react-modal-image';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 import ReviewsLocation from '../../components/reviews-location/ReviewsLocation';
 import BookingForm from '../../components/booking-form/BookingForm';
@@ -20,15 +20,29 @@ const buildLinkClass = ({ isActive }) => {
 
 const View = () => {
   const { id } = useParams();
+  const location = useLocation();
   const dispatch = useDispatch();
   const item = useSelector(selectSingleItem);
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
+    if (!isLoading && item && location.pathname.includes('reviews')) {
+      scrollToTabs();
+    }
+  }, [isLoading, item, location]);
+
+  useEffect(() => {
     dispatch(fetchSingleItem(id));
   }, [dispatch, id]);
-  
 
+  function onReviewClick () {
+    scrollToTabs();
+  }
+
+  function scrollToTabs() {
+    document.getElementById('tabs')?.scrollIntoView({ behavior: 'smooth' });
+  }
+  
   return (
     <main className="container">
       <div className="content">
@@ -49,7 +63,8 @@ const View = () => {
               rating={item.rating}
               reviewsCount={item.reviewsCount}
               location={item.location}
-              isSamePageAsReviews={true} />
+              isSamePageAsReviews={true}
+              onClick={onReviewClick} />
 
             <h2 className="item-price">{formatPrice(item.price)}</h2>
           </div>
@@ -70,7 +85,9 @@ const View = () => {
 
           <p className={css.description}>{item.description}</p>
 
-          <div className={css.tabs}>
+          <div
+            id="tabs"
+            className={css.tabs}>
             <NavLink to={`/catalog/${item.id}`} end className={buildLinkClass}>
               Features
             </NavLink>

@@ -1,4 +1,4 @@
-.filters {
+.component {
   text-align: left;
 }
 
@@ -14,6 +14,7 @@
 }
 
 .location .label {
+  color: var(--gray);
   margin-bottom: 8px;
 }
 

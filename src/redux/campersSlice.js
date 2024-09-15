@@ -1,4 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from '@reduxjs/toolkit';
 import { Bounce, toast } from 'react-toastify';
 import { fetchCampers, fetchSingleItem } from './campersOps';
 import { selectFilters } from './filtersSlice';
@@ -11,14 +11,14 @@ const handlePending = state => {
 const handleRejected = (state, action) => {
   state.loading = false;
   toast.error(action.payload, {
-    position: "top-right",
+    position: 'top-right',
     autoClose: 3000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    theme: "dark",
+    theme: 'dark',
     transition: Bounce,
   });
 };
@@ -30,7 +30,7 @@ const campersSlice = createSlice({
     favorites: [],
     loading: false,
     singleItem: null,
-    campersToShow: 5,
+    itemsToShow: 5,
   },
   reducers: {
     addToFavorites(state, action) {
@@ -42,10 +42,10 @@ const campersSlice = createSlice({
       );
     },
     resetCampersToShow(state) {
-      state.campersToShow = 5;
+      state.itemsToShow = 5;
     },
     increaseCampersToShow(state) {
-      state.campersToShow += 5;
+      state.itemsToShow += 5;
     }
   },
   extraReducers: builder => {
@@ -75,7 +75,7 @@ export const selectCampers = (state) => state.campers.items;
 export const selectFavorites = (state) => state.campers.favorites;
 export const selectIsLoading = (state) => state.campers.loading;
 export const selectSingleItem = (state) => state.campers.singleItem;
-export const selectCampersToShow = (state) => state.campers.campersToShow;
+export const selectCampersToShow = (state) => state.campers.itemsToShow;
 
 export const selectFilteredCampers = createSelector(
   [selectCampers, selectFilters],

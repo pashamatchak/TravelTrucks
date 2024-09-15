@@ -8,12 +8,12 @@ const buildLinkClass = ({ isActive }) => {
 
 const Navigation = () => {
   return (
-    <header className={css.header}>
+    <header className={css.component}>
       <div className="container">
         <nav className={css.nav}>
           <img
             className={css.logo}
-            src="./src/assets/logo.svg"
+            src="/logo.svg"
             alt="logo" />
 
           <ul className={css.list}>

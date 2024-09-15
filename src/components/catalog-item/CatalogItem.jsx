@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import ItemOptions from '../item-options/ItemOptions';
+import Badges from '../badges/Badges';
 import ReviewsLocation from '../reviews-location/ReviewsLocation';
 import { formatPrice } from '../../helpers/format-price';
 import { itemType } from '../../types/item';
@@ -8,7 +8,7 @@ import css from './CatalogItem.module.css';
 
 const CatalogItem = ({ item, isFavorite, toggleFavorite }) => {
   return (
-    <li className={css.item}>
+    <li className={css.component}>
       <div className="image-wrapper">
         <img
           className="image"
@@ -40,7 +40,7 @@ const CatalogItem = ({ item, isFavorite, toggleFavorite }) => {
 
         <p className={css.description}>{item.description}</p>
 
-        <ItemOptions item={item} />
+        <Badges item={item} />
 
         <NavLink
           to={`/catalog/${item.id}`}

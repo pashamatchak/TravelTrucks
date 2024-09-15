@@ -12,7 +12,7 @@ export const itemType = PropTypes.shape({
   AC: PropTypes.bool.isRequired,
   TV: PropTypes.bool.isRequired,
   bathroom: PropTypes.bool.isRequired,
-  gas: PropTypes.bool.isRequired,
+  engine: PropTypes.string.isRequired,
   form: PropTypes.string.isRequired,
   kitchen: PropTypes.bool.isRequired,
   radio: PropTypes.bool.isRequired,
