@@ -3,7 +3,7 @@ import css from './Filter.module.css';
 
 const Filter = ({ icon, label, name, id }) => {
   return (
-    <div className={css['filter-wrap']}>
+    <div className={css.component}>
       <input
         type="checkbox"
         className={`${css.input}`}

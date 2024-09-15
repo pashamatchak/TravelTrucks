@@ -209,6 +209,7 @@ p {
   font-size: 20px;
 }
 
+/* Overriding datepicker package styles */
 .react-datepicker,
 .react-datepicker__navigation-icon::before {
   border-color: var(--text) !important;
